@@ -78,7 +78,6 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-6">RAG Trial</h1>
 
       <div className="space-y-6 w-full">
-        {/* Chat Input with integrated upload */}
         <div className="flex w-[50vw] items-center gap-2 border rounded-lg px-3 py-2 shadow-sm ">
           <input
             ref={fileInputRef}
@@ -134,14 +133,12 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Upload Status */}
         {uploadStatus && (
           <div className="text-sm text-gray-600">
             {uploadStatus}
           </div>
         )}
 
-        {/* Answer Section */}
         {answer && (
           <section className="rounded-lg p-6 shadow-sm">
             <h3 className="text-lg font-semibold mb-3">Answer</h3>
