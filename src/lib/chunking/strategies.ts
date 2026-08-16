@@ -52,7 +52,7 @@ export function chunkPages(
       });
 
       if (end === clean.length) break;
-      start = end - overlapChars; // step back by overlap
+      start = end - overlapChars;
       idx++;
     }
   }
