@@ -1,8 +1,8 @@
 export interface Chunk {
   id: string;
   docId: string;
-  source: string;      // filename or doc title
-  page: number;        // page number for citation
+  source: string;      
+  page: number;        
   text: string;
   embedding?: number[];
 }
