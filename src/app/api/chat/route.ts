@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "query is required" }, { status: 400 });
     }
 
-    const chunks = loadChunks();
+    const chunks = await loadChunks();
     if (chunks.length === 0) {
       return NextResponse.json({
         answer: "No documents have been ingested yet. Call /api/ingest first.",
