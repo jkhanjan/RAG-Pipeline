@@ -9,7 +9,7 @@
 - **Dense retrieval (cosine)** — `src/lib/retrieval/dense.ts`
 - **Hybrid retrieval (RRF fusion)** — `src/lib/retrieval/hybrid.ts`
 - **Generation with citation grounding** — `src/lib/generation/groq.ts` — Groq (`openai/gpt-oss-120b`), system prompt forces `[n]`-style citations tied to retrieved passages, refuses when context doesn't contain the answer.
-- **Storage** — `src/lib/db/vector-store.ts` — flat JSON file at `data/store.json`. Fine for a trial; swap for pgvector/SQLite+vector extension once it needs to survive concurrent writes or scale past a few thousand chunks.
+- **Storage** — `src/lib/db/vector-store.ts` — Supabase `public.chunks` table with pgvector embeddings.
 - **API routes** — `POST /api/ingest` (chunk + embed + store), `POST /api/chat` (hybrid search → Groq → answer + citations).
 - **UI** — `src/app/page.tsx` — minimal ask box + citation list.
 
@@ -19,6 +19,8 @@
 cp .env.local.example .env.local   # add your GROQ_API_KEY
 npm run dev
 ```
+
+Run [`supabase/schema.sql`](supabase/schema.sql) in the Supabase SQL Editor before uploading a PDF. It creates the `chunks` table, enables pgvector with the 384 dimensions used by `all-MiniLM-L6-v2`, and adds the required RLS policy.
 
 Ingest a doc:
 ```bash
