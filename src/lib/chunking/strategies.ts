@@ -65,7 +65,6 @@ export function chunkPages(
  * - 500 tokens (~2000 chars) is small enough to keep retrieval precise
  *   (a chunk is about one paragraph/idea) but large enough to preserve context.
  * - 50 token overlap (10%) prevents losing meaning at chunk boundaries when a
- *   sentence or idea straddles the cut point, without heavily duplicating content.
  * Tune chunkTokens down (~200-300) for dense reference text (specs, tables),
  * up (~800) for narrative text where broader context helps.
  */
