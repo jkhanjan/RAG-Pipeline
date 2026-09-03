@@ -36,15 +36,15 @@ export default function Home() {
       const data = await res.json();
 
       if (res.ok) {
-        setUploadStatus(`✅ ${data.message || "File uploaded successfully!"}`);
+        setUploadStatus(`${data.message || "File uploaded successfully!"}`);
         if (fileInputRef.current) {
           fileInputRef.current.value = "";
         }
       } else {
-        setUploadStatus(`❌ ${data.error || "Upload failed"}`);
+        setUploadStatus(`${data.error || "Upload failed"}`);
       }
     } catch {
-      setUploadStatus("❌ Failed to upload file");
+      setUploadStatus("Failed to upload file");
     } finally {
       setUploading(false);
       setTimeout(() => setUploadStatus(""), 5000);
