@@ -16,7 +16,7 @@
 ## Setup
 
 ```bash
-cp .env.local.example .env.local   # add your GROQ_API_KEY
+cp .env.local.example .env.local 
 npm run dev
 ```
 

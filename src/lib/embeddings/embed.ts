@@ -1,6 +1,5 @@
 import { pipeline, type FeatureExtractionPipeline } from "@xenova/transformers";
 
-// Runs locally (downloads model once, then cached) — no API key, no cost.
 // Good enough for a trial project; swap for a hosted embedding API later
 const MODEL_NAME = "Xenova/all-MiniLM-L6-v2"; // 384-dim, fast, solid quality/speed tradeoff
 
